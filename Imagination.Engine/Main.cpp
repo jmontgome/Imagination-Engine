@@ -1,11 +1,7 @@
 #include <iostream>
+#include "Logger.h"
 
-int main() 
+int main()
 {
-	std::string lastname;
-	
-	std::cout << "Hello World" << std::endl;
-	std::cin >> lastname;
-
-	std::cout << "You entered " << lastname << " as your last name.";
+	Imagination::Logging::Log("Hello World");
 }

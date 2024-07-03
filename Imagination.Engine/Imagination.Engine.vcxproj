@@ -106,6 +106,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>..\Imagination.Logging;..\Imagination.Core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -130,6 +131,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Imagination.Core\Imagination.Core.vcxproj">
+      <Project>{807f80a4-9a7b-40e2-b9b9-196fd062b5ec}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Imagination.Logging\Imagination.Logging.vcxproj">
+      <Project>{413d3abb-6eb2-42e1-a64f-e89a5ca6bd5a}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
