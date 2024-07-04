@@ -3,13 +3,12 @@
 
 #include <iostream>
 
-namespace Imagination
+namespace Logging
 {
-	namespace Logging
+	void Log(const char* message)
 	{
-		void Log(const char* message)
-		{
-			std::cout << message << std::endl;
-		}
+#if DEBUG
+		std::cout << message << std::endl;
+#endif
 	}
 }

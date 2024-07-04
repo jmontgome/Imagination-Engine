@@ -1,8 +1,5 @@
 #pragma once
-namespace Imagination 
+namespace Logging
 {
-	namespace Logging
-	{
-		void Log(const char* message);
-	}
+	void Log(const char* message);
 }
