@@ -1,9 +1,29 @@
+#include <iostream>
 #include <GLFW/glfw3.h>
+
+#include "input.cpp"
 
 static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
-    if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
-        glfwSetWindowShouldClose(window, GLFW_TRUE);
+    if (action == GLFW_PRESS) 
+    {
+        key_down(key);
+    }
+    else if (action == GLFW_RELEASE) 
+    {
+        key_up(key);
+    }
+    else if (action == GLFW_REPEAT) 
+    {
+        key_hold(key);
+    }
+    else
+    {
+        std::cout << "Action :" << action << "\r\n";
+    }
+    
+    //if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+    //    glfwSetWindowShouldClose(window, GLFW_TRUE);
 }
 
 int main(void)
