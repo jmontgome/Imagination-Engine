@@ -15,18 +15,33 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="src\global.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="pch.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="src\graph.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\input.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\logger.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\types.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\window.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Imagination.Core.cpp">
+    <ClCompile Include="src\logger.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="pch.cpp">
+    <ClCompile Include="src\main.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\window.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
