@@ -1,6 +1,7 @@
 #include <Windows.h>
 
 #include "global.h"
+#include "input.h"
 
 #define WINDOW_WIDTH 1366
 #define WINDOW_HEIGHT 720

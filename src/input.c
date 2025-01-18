@@ -3,6 +3,7 @@
 #include "global.h"
 #include "input.h"
 #include "clock.h"
+#include "game/player.h"
 
 InputState Input_State;
 
@@ -34,7 +35,22 @@ void Input_CheckKeys(UINT msg, WPARAM wParam) {
 	}
 }
 void Input_Process() {
-
+	for (int i = 0; i < 256; i++) {
+		if (Input_State.KeysActive[i]) {
+			if (Input_State.KeysActive[i]->KeyCode == 0x41) {
+				Player_MoveLeft();
+			}
+			else if (Input_State.KeysActive[i]->KeyCode == 0x44) {
+				Player_MoveRight();
+			}
+			else if (Input_State.KeysActive[i]->KeyCode == 0x53) {
+				Player_MoveDown();
+			}
+			else if (Input_State.KeysActive[i]->KeyCode == 0x57) {
+				Player_MoveUp();
+			}
+		}
+	}
 }
 
 void Input_Main() {

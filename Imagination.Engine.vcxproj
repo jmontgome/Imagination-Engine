@@ -20,6 +20,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\clock.h" />
+    <ClInclude Include="src\game\play.h" />
+    <ClInclude Include="src\game\player.h" />
     <ClInclude Include="src\global.h" />
     <ClInclude Include="src\graph.h" />
     <ClInclude Include="src\input.h" />
@@ -29,6 +31,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\clock.c" />
+    <ClCompile Include="src\game\play.c" />
+    <ClCompile Include="src\game\player.c" />
+    <ClCompile Include="src\graph.c" />
     <ClCompile Include="src\input.c" />
     <ClCompile Include="src\logger.c" />
     <ClCompile Include="src\main.c" />
