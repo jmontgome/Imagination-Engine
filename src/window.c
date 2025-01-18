@@ -5,13 +5,26 @@
 #define WINDOW_WIDTH 1366
 #define WINDOW_HEIGHT 720
 
+LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
+	Input_CheckKeys(msg, wParam);
+	switch (msg) {
+	case WM_CLOSE:
+		DestroyWindow(hwnd);
+		break;
+	case WM_DESTROY:
+		PostQuitMessage(0);
+		break;
+	}
+	return DefWindowProc(hwnd, msg, wParam, lParam);
+}
+
 HWND* Window_Init(HINSTANCE hInstance, int nCmdShow, LPCWSTR className) {
 	WNDCLASSEX wc;
 	HWND hwnd;
 
 	wc.cbSize = sizeof(wc);
 	wc.style = 0;
-	wc.lpfnWndProc = DefWindowProc;
+	wc.lpfnWndProc = WndProc;
 	wc.cbClsExtra = 0;
 	wc.cbWndExtra = 0;
 	wc.hInstance = hInstance;

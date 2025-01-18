@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\clock.h" />
     <ClInclude Include="src\global.h" />
     <ClInclude Include="src\graph.h" />
     <ClInclude Include="src\input.h" />
@@ -27,6 +28,8 @@
     <ClInclude Include="src\window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\clock.c" />
+    <ClCompile Include="src\input.c" />
     <ClCompile Include="src\logger.c" />
     <ClCompile Include="src\main.c" />
     <ClCompile Include="src\window.c" />
