@@ -18,8 +18,8 @@ typedef struct KeyRelease {
 	u128 TimeReleased;
 } KeyRelease;
 typedef struct InputState {
-	KeyActive* KeysActive[256];
-	KeyRelease* KeysReleased[256];
+	KeyActive KeysActive[256];
+	KeyRelease KeysReleased[256];
 } InputState;
 
 void Input_CheckKeys(UINT msg, WPARAM wParam);

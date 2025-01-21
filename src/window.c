@@ -9,12 +9,12 @@
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 	Input_CheckKeys(msg, wParam);
 	switch (msg) {
-	case WM_CLOSE:
-		DestroyWindow(hwnd);
-		break;
-	case WM_DESTROY:
-		PostQuitMessage(0);
-		break;
+		case WM_CLOSE:
+			DestroyWindow(hwnd);
+			break;
+		case WM_DESTROY:
+			PostQuitMessage(0);
+			break;
 	}
 	return DefWindowProc(hwnd, msg, wParam, lParam);
 }
@@ -43,7 +43,7 @@ HWND* Window_Init(HINSTANCE hInstance, int nCmdShow, LPCWSTR className) {
 	}
 
 	hwnd = CreateWindowEx(
-		0, className, className, WS_CAPTION | WS_MINIMIZEBOX | WS_SYSMENU,
+		WS_EX_CLIENTEDGE, className, className, WS_OVERLAPPEDWINDOW,
 		CW_USEDEFAULT, CW_USEDEFAULT, WINDOW_WIDTH, WINDOW_HEIGHT,
 		NULL, NULL, hInstance, NULL
 	);
@@ -51,5 +51,5 @@ HWND* Window_Init(HINSTANCE hInstance, int nCmdShow, LPCWSTR className) {
 	ShowWindow(hwnd, nCmdShow);
 	UpdateWindow(hwnd);
 
-	return &hwnd;
+	return hwnd;
 }

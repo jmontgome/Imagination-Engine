@@ -28,9 +28,9 @@ int WINAPI WinMain(
 	Graph_Init(hwnd);
 
 	while (IsRunning == 1) {
-		if (PeekMessageA(&msg, NULL, 0, 0, PM_REMOVE)) {
+		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) {
 			TranslateMessage(&msg);
-			DispatchMessage(&msg);
+			DispatchMessageA(&msg);
 		}
 
 		Graph_Main();

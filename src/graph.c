@@ -7,6 +7,10 @@
 #define PLAYER_HEIGHT 5
 
 HWND* Window;
+HDC Screen;
+
+u16 ScreenWidth;
+u16 ScreenHeight;
 
 void Graph_DrawWorld() {
 
@@ -15,26 +19,29 @@ void Graph_DrawEntities() {
 
 }
 void Graph_DrawPlayer() {
-	RECT windowDim;
-	HDC screen = GetDC(*Window);
-	u16 screenWidth = 0;
-	u16 screenHeight = 0;
-
-	if (GetWindowRect(*Window, &windowDim)) {
-		screenWidth = windowDim.right - windowDim.left;
-		screenHeight = windowDim.bottom - windowDim.top;
-
-		Rectangle(screen,
-			(screenWidth / 2) + Player_GetX(),
-			(screenHeight / 2) + Player_GetY(),
-			(screenWidth / 2) + Player_GetX() + PLAYER_WIDTH,
-			(screenHeight / 2) + Player_GetY() + PLAYER_HEIGHT);
-	}
+	Rectangle(Screen,
+		(ScreenWidth / 2) + Player_GetX(),
+		(ScreenHeight / 2) - Player_GetY(),
+		(ScreenWidth / 2) + Player_GetX() + PLAYER_WIDTH,
+		(ScreenHeight / 2) - Player_GetY() + PLAYER_HEIGHT);
 }
 
 void Graph_Init(HWND* hwnd) {
+	RECT screenDim;
 	Window = hwnd;
+	if (GetWindowRect(Window, &screenDim)) {
+		ScreenWidth = screenDim.right - screenDim.left;
+		ScreenHeight = screenDim.bottom - screenDim.top;
+	}
 }
 void Graph_Main() {
-	Graph_DrawPlayer();
+	RECT screenDim;
+	Screen = GetWindowDC(Window);
+
+	if (Screen) {
+		Graph_DrawPlayer();
+		ReleaseDC(Window, Screen);
+	}
+
+	Screen = NULL;
 }
