@@ -3,6 +3,8 @@
 #include "global.h"
 #include "game/player.h"
 
+#define DRAW_PIXEL(hdc, point) Rectangle(hdc, point.X, GetScreenHeight() - point.Y, GetScreenWidth() - point.X + 1, point.Y + 1)
+
 #define PLAYER_WIDTH 5
 #define PLAYER_HEIGHT 5
 
@@ -11,6 +13,13 @@ HDC Screen;
 
 u16 ScreenWidth;
 u16 ScreenHeight;
+
+u16 GetScreenWidth() {
+	return ScreenWidth;
+}
+u16 GetScreenHeight() {
+	return ScreenHeight;
+}
 
 void Graph_DrawWorld() {
 
