@@ -7,6 +7,8 @@
 #define WINDOW_HEIGHT 720
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
+	LRESULT Result = 0;
+	
 	Input_CheckKeys(msg, wParam);
 	switch (msg) {
 		case WM_CLOSE:
@@ -15,8 +17,11 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 		case WM_DESTROY:
 			PostQuitMessage(0);
 			break;
+		default: {
+			Result = DefWindowProc(hwnd, msg, wParam, lParam);
+		} break;
 	}
-	return DefWindowProc(hwnd, msg, wParam, lParam);
+	return (Result);
 }
 
 HWND* Window_Init(HINSTANCE hInstance, int nCmdShow, LPCWSTR className) {
@@ -35,7 +40,7 @@ HWND* Window_Init(HINSTANCE hInstance, int nCmdShow, LPCWSTR className) {
 	wc.lpszMenuName = NULL;
 	wc.lpszClassName = className;
 	wc.hIconSm = LoadIcon(NULL, IDI_APPLICATION);
-
+	
 	if (!RegisterClassEx(&wc)) {
 		MessageBox(NULL, L"Window Registration Failed!", L"Error!",
 			MB_ICONEXCLAMATION | MB_OK);
