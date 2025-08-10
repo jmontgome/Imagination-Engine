@@ -1,7 +1,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include "global.h"
+#include "././internal/types.h"
 
 typedef struct Player {
 	u8 Health;

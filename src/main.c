@@ -1,42 +1,43 @@
-#include <Windows.h>
+#include <glfw/glfw3.h>
 
-#include "global.h"
-#include "window.h"
 #include "input.h"
-#include "graph.h"
-#include "clock.h"
-#include "game/play.h"
+#include "sys/system.h"
 
-const LPCWSTR W_CLASS_NAME = L"Imagination Engine";
+#if WINDOWS
+#if _DEBUG
+int main() {
+#else
+int WinMain() {
+#endif
+#elif LINUX
+int main() {
+#endif
+	GLFWwindow* window;
 
-u8 IsRunning = 1;
-
-int WINAPI WinMain(
-	HINSTANCE	hInstance,
-	HINSTANCE	hPrevInstance,
-	LPSTR		lpCmdLine,
-	int			nCmdShow)
-{	
-	MSG msg;
-
-	HWND* hwnd = Window_Init(hInstance, nCmdShow, W_CLASS_NAME);
-	if (!hwnd) {
-		return 1;
+	if (!glfwInit()) {
+		return -1;
 	}
 
-	Play_Init();
-	Graph_Init(hwnd);
-
-	while (IsRunning == 1) {
-		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) {
-			TranslateMessage(&msg);
-			DispatchMessageA(&msg);
-		}
-
-		Graph_Main();
-		Input_Main();
-		Clock_Main();
+	window = glfwCreateWindow(640, 480, "Imagination Engine", NULL, NULL);
+	if (!window) {
+		glfwTerminate();
+		return -1;
 	}
 
-	return msg.wParam;
+	glfwSetKeyCallback(window, Input_Key_Callback);
+
+	glfwMakeContextCurrent(window);
+
+	while (!glfwWindowShouldClose(window)) {
+		glClear(GL_COLOR_BUFFER_BIT);
+
+		glfwSwapBuffers(window);
+
+		glfwPollEvents();
+	}
+
+	glfwDestroyWindow(window);
+
+	glfwTerminate();
+	return 0;
 }

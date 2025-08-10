@@ -19,25 +19,19 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\clock.h" />
+    <ClInclude Include="src\internal\clock.h" />
     <ClInclude Include="src\game\play.h" />
     <ClInclude Include="src\game\player.h" />
-    <ClInclude Include="src\global.h" />
-    <ClInclude Include="src\graph.h" />
     <ClInclude Include="src\input.h" />
-    <ClInclude Include="src\logger.h" />
-    <ClInclude Include="src\types.h" />
-    <ClInclude Include="src\window.h" />
+    <ClInclude Include="src\internal\types.h" />
+    <ClInclude Include="src\sys\system.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\clock.c" />
+    <ClCompile Include="src\internal\clock.c" />
     <ClCompile Include="src\game\play.c" />
     <ClCompile Include="src\game\player.c" />
-    <ClCompile Include="src\graph.c" />
     <ClCompile Include="src\input.c" />
-    <ClCompile Include="src\logger.c" />
     <ClCompile Include="src\main.c" />
-    <ClCompile Include="src\window.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -102,10 +96,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)\bin\Output\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\bin\Output\$(Platform)\$(Configuration)\</IntDir>
+    <IncludePath>F:\SoftwareRepos\jmontgome\Imagination-Engine\src;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)\bin\Output\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\bin\Output\$(Platform)\$(Configuration)\</IntDir>
+    <IncludePath>F:\SoftwareRepos\jmontgome\Imagination-Engine\src;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -149,18 +145,18 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp20</LanguageStandard>
-      <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>F:\SoftwareRepos\jmontgome\Imagination-Engine\src</AdditionalIncludeDirectories>
+      <LanguageStandard>Default</LanguageStandard>
+      <LanguageStandard_C>Default</LanguageStandard_C>
+      <AdditionalIncludeDirectories>F:\SoftwareDevLibraries\glfw-3.4.bin.WIN64\include</AdditionalIncludeDirectories>
       <TreatWarningAsError>false</TreatWarningAsError>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <ExceptionHandling>false</ExceptionHandling>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>NotSet</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>F:\SoftwareDevLibraries\glfw-3.4.bin.WIN64\lib-vc2022;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -169,20 +165,20 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions);NDEBUG</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <TreatWarningAsError>false</TreatWarningAsError>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <LanguageStandard>stdcpp20</LanguageStandard>
-      <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>F:\SoftwareRepos\jmontgome\Imagination-Engine\src</AdditionalIncludeDirectories>
+      <LanguageStandard>Default</LanguageStandard>
+      <LanguageStandard_C>Default</LanguageStandard_C>
+      <AdditionalIncludeDirectories>F:\SoftwareDevLibraries\glfw-3.4.bin.WIN64\include</AdditionalIncludeDirectories>
+      <ExceptionHandling>false</ExceptionHandling>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>NotSet</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>F:\SoftwareDevLibraries\glfw-3.4.bin.WIN64\lib-vc2022;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

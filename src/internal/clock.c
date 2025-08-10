@@ -1,4 +1,4 @@
-#include "global.h"
+#include "././internal/types.h"
 
 u128 TickTime;
 

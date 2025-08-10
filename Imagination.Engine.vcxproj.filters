@@ -15,26 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\global.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\graph.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\input.h">
       <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\logger.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\types.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\window.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\clock.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\game\player.h">
       <Filter>Header Files</Filter>
@@ -42,30 +24,30 @@
     <ClInclude Include="src\game\play.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\internal\clock.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal\types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sys\system.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\logger.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\main.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\window.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\input.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\clock.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\game\player.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\graph.c">
+    <ClCompile Include="src\game\play.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\game\play.c">
+    <ClCompile Include="src\internal\clock.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
