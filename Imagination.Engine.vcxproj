@@ -23,6 +23,9 @@
     <ClInclude Include="src\game\play.h" />
     <ClInclude Include="src\game\player.h" />
     <ClInclude Include="src\input.h" />
+    <ClInclude Include="src\internal\datetime.h" />
+    <ClInclude Include="src\internal\math.h" />
+    <ClInclude Include="src\internal\str.h" />
     <ClInclude Include="src\internal\types.h" />
     <ClInclude Include="src\sys\system.h" />
   </ItemGroup>
@@ -31,6 +34,9 @@
     <ClCompile Include="src\game\play.c" />
     <ClCompile Include="src\game\player.c" />
     <ClCompile Include="src\input.c" />
+    <ClCompile Include="src\internal\datetime.c" />
+    <ClCompile Include="src\internal\math.c" />
+    <ClCompile Include="src\internal\str.c" />
     <ClCompile Include="src\main.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -151,6 +157,7 @@
       <AdditionalIncludeDirectories>F:\SoftwareDevLibraries\glfw-3.4.bin.WIN64\include</AdditionalIncludeDirectories>
       <TreatWarningAsError>false</TreatWarningAsError>
       <ExceptionHandling>false</ExceptionHandling>
+      <PreprocessorDefinitions>_UNICODE;UNICODE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS;</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>NotSet</SubSystem>
@@ -171,6 +178,7 @@
       <LanguageStandard_C>Default</LanguageStandard_C>
       <AdditionalIncludeDirectories>F:\SoftwareDevLibraries\glfw-3.4.bin.WIN64\include</AdditionalIncludeDirectories>
       <ExceptionHandling>false</ExceptionHandling>
+      <PreprocessorDefinitions>_UNICODE;UNICODE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS;</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>NotSet</SubSystem>

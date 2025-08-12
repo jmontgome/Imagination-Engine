@@ -1,11 +1,14 @@
+#include <GLFW/glfw3.h>
+
 #include "././internal/types.h"
 
-u128 TickTime;
-
-u128 Clock_GetTick() {
-	return TickTime;
+double Clock_GetSeconds() {
+	return glfwGetTime();
+}
+u128 Clock_GetTickInWholeSeconds() {
+	return (u128)glfwGetTime();
 }
 
 void Clock_Main() {
-	TickTime++;
+	
 }

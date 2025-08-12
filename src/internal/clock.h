@@ -3,7 +3,9 @@
 
 #include "./types.h"
 
-u128 Clock_GetTick();
+double Clock_GetSeconds();
+u128 Clock_GetTickInWholeSeconds();
+
 
 void Clock_Main();
 

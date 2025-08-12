@@ -2,6 +2,11 @@
 
 #include "input.h"
 #include "sys/system.h"
+#include "internal/datetime.h"
+
+#if WINDOWS
+#include <stdio.h>
+#endif
 
 #if WINDOWS
 #if _DEBUG
@@ -23,6 +28,8 @@ int main() {
 		glfwTerminate();
 		return -1;
 	}
+
+	printf("%s", DateTime_FromWinTimeString());
 
 	glfwSetKeyCallback(window, Input_Key_Callback);
 
