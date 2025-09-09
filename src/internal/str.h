@@ -5,9 +5,13 @@
 
 #include "types.h"
 
-u16 strLen(char* str);
+u64 strIndexOf(char* str, char ch);
+u64 strLen(char* str);
 u8 strIsNumber(char* str);
+u8 strContains(char* str, char ch);
 
-char* strConcat(char* strA, char* strB);
+char* strConcat_M(char* strA, char* strB);
+
+void freeStr(char* str);
 
 #endif

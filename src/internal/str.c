@@ -3,10 +3,20 @@
 #include "types.h"
 #include "str.h"
 
-u16 strLen(char* str) {
+u64 strIndexOf(char* str, char ch) {
+	if (str != NULL) {
+		char* strLength = strLen(str);
+		for (int i = 0; i < strLength; i++) {
+			if (str[i] == ch) {
+				return i;
+			}
+		}
+	}
+}
+u64 strLen(char* str) {
 	if (str) {
 		for (int i = 0;; i++) {
-			if (str[i] == '\0' || i == MAX_STRING_LENGTH) {
+			if (str[i] == 0x00 || i == MAX_STRING_LENGTH) {
 				return i;
 			}
 		}
@@ -24,7 +34,18 @@ u8 strIsNumber(char* str) {
 	return 1;
 }
 
-char* strConcat(char* strA, char* strB) {
+u8 strContains(char* str, char ch) {
+	if (str != NULL) {
+		char* strLength = strLen(str);
+		for (int i = 0; i < strLength; i++) {
+			if (str[i] == ch) {
+				return 1;
+			}
+		}
+	}
+}
+
+char* strConcat_M(char* strA, char* strB) {
 	if (strA && strB) {
 		int len1 = strLen(strA);
 		int len2 = strLen(strB);
@@ -42,4 +63,9 @@ char* strConcat(char* strA, char* strB) {
 		newStr[len1 + len2] = '\0';
 		return newStr;
 	}
+}
+
+void freeStr(char* str) {
+	str = NULL;
+	free(str);
 }

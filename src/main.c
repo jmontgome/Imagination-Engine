@@ -29,8 +29,6 @@ int main() {
 		return -1;
 	}
 
-	printf("%s", DateTime_FromWinTimeString());
-
 	glfwSetKeyCallback(window, Input_Key_Callback);
 
 	glfwMakeContextCurrent(window);
